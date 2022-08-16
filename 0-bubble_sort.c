@@ -13,7 +13,7 @@ void bubble_sort(int *array, size_t size)
 
 	for (; index < size - 1; index++)
 	{
-		for (jindex = 0; jindex < size - i - 1; jindex++)
+		for (jindex = 0; jindex < size - index - 1; jindex++)
 		{
 			if (array[jindex] > array[jindex + 1])
 			{
