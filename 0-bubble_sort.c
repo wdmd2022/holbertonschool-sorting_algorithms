@@ -11,6 +11,11 @@ void bubble_sort(int *array, size_t size)
 	unsigned long int jindex;
 	int tempeh;
 
+	if (size < 2)
+		return;
+	if (array == NULL)
+		return;
+
 	for (; index < size - 1; index++)
 	{
 		for (jindex = 0; jindex < size - index - 1; jindex++)
