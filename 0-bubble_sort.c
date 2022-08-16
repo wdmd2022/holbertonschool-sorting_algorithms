@@ -25,8 +25,8 @@ void bubble_sort(int *array, size_t size)
 				tempeh = array[jindex];
 				array[jindex] = array[jindex + 1];
 				array[jindex + 1] = tempeh;
+				print_array(array, size);
 			}
 		}
-		print_array(array, size);
 	}
 }
