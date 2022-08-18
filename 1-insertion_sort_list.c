@@ -37,7 +37,6 @@ void switcheroo(listint_t **head, listint_t **first, listint_t **second)
  * @list: head of the listint_t list
  * Return: nothing at all
  */
-
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *node;
