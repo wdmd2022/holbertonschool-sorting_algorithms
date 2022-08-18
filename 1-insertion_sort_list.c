@@ -1,64 +1,72 @@
 #include "sort.h"
-
 /**
- * nodeflip - changes around 2 adjacent nodes in a linked list
- * @nodepointer: pointer to the node
- * Return: nothing at all
+ * switcheroo - switch two  elements of a doublylinked  listint_t type list
+ * @head: pointer to head
+ * @first: pointer to first adjacent node
+ * @second: pointer to second adjacent node
+ * Return: nothing
  */
-void nodeflip(listint_t **nodepointer)
-{
-	listint_t *a = (*nodepointer);
-	listint_t *b = (*nodepointer)->next;
 
-	if (a->prev == NULL)
+void switcheroo(listint_t **head, listint_t **first, listint_t **second)
+{
+	listint_t *previous = NULL, *next = NULL;
+	listint_t *a = *first, *b = *second;
+
+	if (a->prev)
 	{
-		a->next = b->next;
-		b->prev = a->prev;
-		b->next = a;
-		a->prev = b;
-		a->next->prev = a;
+		previous = a->prev;
+		previous->next = b;
 	}
-	else
+	b->prev = previous;
+	if (b->next)
 	{
-		a->next = b->next;
-		b->prev = a->prev;
-		b->prev->next = b;
-		a->prev = b;
-		b->next = a;
-		a->next->prev = a;
+		next = b->next;
+		next->prev = a;
 	}
+	a->next = next;
+	b->next = a;
+	a->prev = b;
+
+	if (*head == a)
+		*head = b;
 }
 
 /**
- * insertion_sort_list - sorts a doubly-linked list using insertion sort
- * @list: double pointer to listint_t type list
+ * insertion_sort_list - sort a doubly-linked list using insertion
+ * sort algorithm (list is of listint_t type)
+ * @list: head of the listint_t list
+ * Return: nothing at all
  */
 
 void insertion_sort_list(listint_t **list)
 {
-        listint_t *element = *list;
-	listint_t *backnode;
+	listint_t *node;
+	listint_t *rev;
 
-	if (element == NULL)
-		return;
-	for (; element->next != NULL; element = element->next)
+	if (!list)
 	{
-		if (element->n > element->next->n)
-		{
-			nodeflip(&element);
-			print_list(*list);
-			backnode = element->prev;
+		return;
+	}
 
-			for (; backnode != NULL; backnode = backnode->prev)
+	node = *list;
+
+	while (node->next)
+	{
+		if (node->next != NULL && node->n > node->next->n)
+		{
+			switcheroo(list, &node, &(node->next));
+			print_list(*list);
+			rev = node->prev;
+			while (rev->prev != NULL && rev->n < rev->prev->n)
 			{
-				if (backnode->n > backnode->next->n)
-				{
-					nodeflip(&backnode);
-					print_list(*list);
-				}
-				else
-					break;
+				switcheroo(list, &(rev->prev), &(rev));
+				print_list(*list);
 			}
+
+		}
+		if (node->next != NULL && node->n <= node->next->n)
+		{
+			node = node->next;
 		}
 	}
 }
