@@ -26,5 +26,6 @@ void insertion_sort_list(listint_t **list);
 void switcheroo(listint_t **head, listint_t **first, listint_t **second);
 void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
+void lomutorules(int *array, size_t size, unsigned int low, unsigned int high);
 
 #endif
