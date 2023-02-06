@@ -15,7 +15,7 @@ void merge_sort(int *array, size_t size)
 }
 
 /**
- * arraymeagain - copies input array 
+ * arraymeagain - copies input array
  * @array: pointer to an array of integers
  * @dest: pointer to destination array
  * @begin: index of array at start
@@ -52,7 +52,8 @@ void splitit(int *brray, int begin, int end, int *array)
 	combinearray(brray, begin, midpoint, end, array);
 }
 
-/** arrayprinter - prints an array
+/**
+ * arrayprinter - prints an array
  * @array: pointer to the array we want to print
  * @begin: index point for starting
  * @end: index point for ending
