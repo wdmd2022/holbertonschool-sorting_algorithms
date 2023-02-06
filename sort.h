@@ -27,5 +27,11 @@ void switcheroo(listint_t **head, listint_t **first, listint_t **second);
 void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
 void lomutorules(int *array, size_t size, unsigned int low, unsigned int high);
+void merge_sort(int *array, size_t size);
+void arraymeagain(int *array, int begin, int end, int *dest);
+void splitit(int *brray, int begin, int end, int *array);
+void arrayprinter(int *array, int begin, int end);
+void combinearray(int *array, int start, int midpoint, int end, int *brray);
+
 
 #endif
