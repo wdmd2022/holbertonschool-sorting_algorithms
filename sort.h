@@ -32,6 +32,9 @@ void arraymeagain(int *array, int begin, int end, int *dest);
 void splitit(int *brray, int begin, int end, int *array);
 void arrayprinter(int *array, int begin, int end);
 void combinearray(int *array, int start, int midpoint, int end, int *brray);
+void swap(int *n, int *m);
+void buildMaxHeap(int *array, int i, int sizey, size_t size);
+void heap_sort(int *array, size_t size);
 
 
 #endif
