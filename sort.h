@@ -35,6 +35,8 @@ void combinearray(int *array, int start, int midpoint, int end, int *brray);
 void swap(int *n, int *m);
 void buildMaxHeap(int *array, int i, int sizey, size_t size);
 void heap_sort(int *array, size_t size);
+void count_in_sort(int *array, int size, int place, int *brray);
+void radix_sort(int *array, size_t size);
 
 
 #endif
